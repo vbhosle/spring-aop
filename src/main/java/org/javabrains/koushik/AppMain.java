@@ -11,7 +11,7 @@ public class AppMain {
 		ShapeService shapeService = ctx.getBean("shapeService", ShapeService.class);
 		System.out.println(shapeService.getCircle().getName());
 		System.out.println(shapeService.getTriangle().getName());
-		shapeService.getCircle().setName("Test");
+		shapeService.getCircle().setNameAndReturn("Test");
 	}
 
 }
