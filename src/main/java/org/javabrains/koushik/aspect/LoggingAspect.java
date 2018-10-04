@@ -38,7 +38,7 @@ public class LoggingAspect {
 		System.out.println("After method with String argument throw exception, arg:" + name +", Exception:"+ ex);
 	}
 	
-	@Around("allGetters()")
+	@Around("@annotation(org.javabrains.koushik.aspect.Loggable)")
 	public Object myAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
 		//actual method execution, so we can skip the execution!
 		System.out.println("Around: Before");

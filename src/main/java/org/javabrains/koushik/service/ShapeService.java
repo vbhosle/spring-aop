@@ -1,5 +1,6 @@
 package org.javabrains.koushik.service;
 
+import org.javabrains.koushik.aspect.Loggable;
 import org.javabrains.koushik.model.Circle;
 import org.javabrains.koushik.model.Triangle;
 
@@ -14,6 +15,8 @@ public class ShapeService {
 		System.out.println("In ShapeService:setCircle");
 		this.circle = circle;
 	}
+	
+	@Loggable
 	public Triangle getTriangle() {
 		System.out.println("In ShapeService:getTriangle");
 		return triangle;
