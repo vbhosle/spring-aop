@@ -21,4 +21,7 @@ public class LoggingAspect {
 		return returnType;
 	}
 	
+	public void loggingAdvice() {
+		System.out.println("Logging from the advice");
+	}
 }
