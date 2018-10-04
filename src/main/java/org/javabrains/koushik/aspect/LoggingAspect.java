@@ -1,5 +1,6 @@
 package org.javabrains.koushik.aspect;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -7,17 +8,17 @@ import org.aspectj.lang.annotation.Pointcut;
 @Aspect
 public class LoggingAspect {
 
-	@Before("execution(public String org.javabrains.koushik.model.Triangle.getName())")
-	public void loggingAdvice() {
-		System.out.println("Advice run. getName method called");
-	}
-	
 	@Before("allCircleMethods()")
-	public void wildcardAdvice() {
-		System.out.println("Wildcard advice run. Get method called");
+	public void loggingAdvice(JoinPoint joinPoint) {
+		System.out.println(joinPoint.toString());
 	}
 	
-	@Pointcut("execution(public * org.javabrains.koushik.model.Circle.get*())")
+	@Before("args(name)")
+	public void stringArgumentMethods(String name) {
+		System.out.println("Method with String argument called, arg:" + name);
+	}
+	
+	@Pointcut("execution(* get*())")
 	public void allGetters() {}
 	
 	@Pointcut("within(org.javabrains.koushik.model.Circle)")
